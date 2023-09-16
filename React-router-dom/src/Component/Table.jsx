@@ -1,24 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const API_data = "https://jsonplaceholder.typicode.com/todos";
-
-const Table = () => {
-  const [apiTitle, setApiTitle] = useState("");
-
-  useEffect(() => {
-    fetch(API_data)
-      .then((response) => response.json())
-      .then((data) => {
-        setApiTitle(data[1].title);
-      });
-  }, []);
-
+  const Table = () => {
   return (
     <>
       <div>Hello Table</div>
       <Link to="/">Home</Link>
-      <h1>{apiTitle}</h1>
     </>
   );
 };

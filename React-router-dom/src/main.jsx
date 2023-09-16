@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import './App.css'
+import "./App.css";
 import "./index.css";
 import Table from "./Component/Table";
 import Navbar from "./Component/navbar";
@@ -9,14 +9,12 @@ import Error from "./Component/error";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./Component/Home";
 import Login from "./Component/login";
-
-
+import API from "./Component/apiData";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
-    
+    element: <Home />
   },
   {
     path: "/navbar",
@@ -33,6 +31,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />
+  },
+  {
+    path: "/api",
+    element: <API />
   },
   {
     path: "*",

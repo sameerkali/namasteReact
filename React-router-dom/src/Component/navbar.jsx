@@ -5,6 +5,7 @@ const navbar = () => {
   return (
     <div>
       <h1 >navbar</h1>
+    <Link style={{marginLeft: "1rem"}} to={`/api`}>API Data</Link>
     <Link style={{marginLeft: "1rem"}} to={`/`}>Home</Link>
     <Link style={{marginLeft: "1rem"}} to={`/login`}>Login</Link>
     <Link style={{marginLeft: "1rem"}} to={`/table`}>Table</Link>
