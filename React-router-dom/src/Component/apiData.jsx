@@ -25,6 +25,9 @@ const apiData = () => {
         back to <Link to={`/`}>Home</Link>{" "}
       </h2>
       <h2> {a}</h2>
+      <div>
+        <h4> this is the data of api </h4>
+      </div>
     </div>
   );
 };
