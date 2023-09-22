@@ -1,0 +1,5 @@
+npm init
+npm i -D parcel
+npm i react
+npm i react-dom
+npx parcel index.html

@@ -8,11 +8,6 @@ function App() {
   const info = rastorent_data.imageGridCards.info;
   return (
     <div>
-    <API />
-    
-      {info.map((card) => (
-        <Card key={card.id} {...card} />
-      ))}
     </div>
   );
 }

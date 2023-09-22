@@ -1,8 +1,9 @@
-import { restaurantList } from "../contants";
+// import { restaurantList } from "../contants";
 import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
-
+const Api_data =
+  "https://api.rawg.io/api/games?key=3e49c7b55bf4452bac85435423b53726"
 function filterData(searchText, restaurants) {
   // 8 restraunt list = > filtered  rest with "King"
   const filterData = restaurants.filter((restaurant) =>
@@ -24,16 +25,15 @@ const Body = () => {
     getRestaurants();
   }, []);
 
-  async function getRestaurants() {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
-    );
+  const getRestaurants = async () => {
+    const data = await fetch(Api_data);
     const json = await data.json();
     console.log(json);
     // Optional Chaining
-    setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards);
-    setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);
-  }
+    // setAllRestaurants(json?.data?.cards?.card?.card);
+    // setFilteredRestaurants(json?.data?.cards?.card?.card);
+    console.log(json?.results);
+  };
 
   console.log("render");
 
