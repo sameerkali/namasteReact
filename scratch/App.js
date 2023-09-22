@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-
+console.log("first")
 const heading = React.createElement(
   "h1",
   { id: "sameer", key: "1" },
