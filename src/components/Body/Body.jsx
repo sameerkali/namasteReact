@@ -2,8 +2,7 @@ import React from "react";
 import "./styles.css";
 import Card from "../Others/Card";
 import { useEffect, useState } from "react";
-const Api_url =
-  "https://api.rawg.io/api/games?key=3e49c7b55bf4452bac85435423b53726";
+const Api_url = process.env.Game_api_key;
 
 const Body = () => {
   const [games, setGames] = useState([]);
