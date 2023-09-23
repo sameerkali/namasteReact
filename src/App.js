@@ -9,7 +9,6 @@ const Main = () => {
   return (
     <div id="container">
       <Header />
-      <Search />
       <Body />
       <Footer />
     </div>

@@ -1,13 +1,23 @@
 /* CSS for the search bar */
-
+:root {
+  --header-bg-color: rgb(1, 163, 144);
+  --footer-bg-color: rgb(1, 163, 144);
+  --text-color: #000;
+  --light-green: #00ad1d;
+  --dark-green: #016034;
+  --orange: #d97919;
+  --light-red: rgb(236, 56, 56);
+}
 .search-container {
     display: flex;
     align-items: center;
     justify-content: center; /* Center horizontally */
-    width: 300px; /* Adjust the width as needed */
-    border: 1px solid #ccc;
+    width: 500px; /* Adjust the width as needed */
+    border: 1px solid #000000;
     border-radius: 5px;
     padding: 5px;
+    margin: 10px;
+    margin-left: 31.8rem;
   }
   
   .search-input {
@@ -19,7 +29,7 @@
   }
   
   .search-button {
-    background-color: #007bff; /* Adjust the button background color */
+    background-color: var(--orange); /* Adjust the button background color */
     border: none;
     color: #fff;
     padding: 10px 15px;

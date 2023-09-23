@@ -1,11 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./styles.css";
 import Card from "../Others/Card";
-import { useEffect, useState } from "react";
+import { SearchIcon } from "lucide-react";
+
 const Api_url = process.env.Game_api_key;
+
+
+const filterData = (searchText, gameData) => {
+  return gameData.filter((game) =>
+    game.name.toLowerCase().includes(searchText.toLowerCase())
+  );
+};
+
 
 const Body = () => {
   const [games, setGames] = useState([]);
+  const [search, setSearch] = useState("");
+  const [filteredGames, setFilteredGames] = useState([]);
 
   useEffect(() => {
     api();
@@ -18,12 +29,42 @@ const Body = () => {
     setGames(data.results);
   };
 
+  const handleSearch = () => {
+    const filteredData = filterData(search, games);
+    setFilteredGames(filteredData);
+  };
+
   return (
     <>
+      {/* search bar */}
+      <div className="search-container">
+        <input
+          type="text"
+          className="search-input"
+          placeholder="Search a game..."
+          aria-label="Search"
+          onChange={(e) => {
+            setSearch(e.target.value);
+          }}
+        />
+        <button
+          className="search-button"
+          aria-label="Search Button"
+          onClick={handleSearch}
+        >
+          <SearchIcon />
+        </button>
+      </div>
+
+      {/* Body */}
       <div className="container-body">
-        {games.map((games) => {
-          return <Card name={games.name} image={games.background_image} />;
-        })}
+        {filteredGames.length > 0 ? (
+          filteredGames.map((game) => (
+            <Card key={game.id} name={game.name} image={game.background_image} />
+          ))
+        ) : (
+          <h1>No result found</h1>
+        )}
       </div>
     </>
   );

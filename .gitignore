@@ -17,6 +17,10 @@ dist-ssr
 parcel-cache
 /.parcel-cache
 \.parcel-cache
+.env
+.env.example
+.env.local
+.env.staging
 
 # Editor directories and files
 .vscode/*
@@ -28,3 +32,4 @@ parcel-cache
 *.njsproj
 *.sln
 *.sw?
+*.env
