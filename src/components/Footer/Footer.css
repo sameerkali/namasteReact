@@ -1,0 +1,35 @@
+:root {
+  --header-bg-color: rgb(1, 163, 144);
+  --footer-bg-color: rgb(1, 163, 144);
+  --text-color: #000;
+  --light-green: #00ad1d;
+  --dark-green: #016034;
+  --orange: #d97919;
+  --light-red: rgb(236, 56, 56);
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.footer{
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+}
+.nav-item > ul {
+  list-style: none;
+  display: flex;
+}
+
+.nav-item > ul > li {
+  margin: 0 10px;
+}
+.btn {
+  padding:0 1rem;
+  border-radius: 5px;
+  color: white;
+  background-color: var(--orange);
+}
