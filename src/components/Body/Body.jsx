@@ -5,13 +5,13 @@ import { SearchIcon } from "lucide-react";
 
 const Api_url = process.env.Game_api_key;
 
-
 const filterData = (searchText, gameData) => {
-  return gameData.filter((game) =>
-    game.name.toLowerCase().includes(searchText.toLowerCase())
-  );
+  return searchText.length === ''
+    ? gameData
+    : gameData.filter((game) =>
+        game.name.toLowerCase().includes(searchText.toLowerCase())
+      );
 };
-
 
 const Body = () => {
   const [games, setGames] = useState([]);
@@ -60,7 +60,11 @@ const Body = () => {
       <div className="container-body">
         {filteredGames.length > 0 ? (
           filteredGames.map((game) => (
-            <Card key={game.id} name={game.name} image={game.background_image} />
+            <Card
+              key={game.id}
+              name={game.name}
+              image={game.background_image}
+            />
           ))
         ) : (
           <h1>No result found</h1>
