@@ -6,7 +6,7 @@ import { SearchIcon } from "lucide-react";
 const Api_url = process.env.Game_api_key;
 
 const filterData = (searchText, gameData) => {
-  return searchText.length === ''
+  return searchText.length === ""
     ? gameData
     : gameData.filter((game) =>
         game.name.toLowerCase().includes(searchText.toLowerCase())
@@ -15,8 +15,8 @@ const filterData = (searchText, gameData) => {
 
 const Body = () => {
   const [games, setGames] = useState([]);
-  const [search, setSearch] = useState("");
   const [filteredGames, setFilteredGames] = useState([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     api();
@@ -58,7 +58,9 @@ const Body = () => {
 
       {/* Body */}
       <div className="container-body">
-        {filteredGames.length > 0 ? (
+        {filteredGames.length === 0 && search.length === 0 ? (
+          <h1>No result found</h1>
+        ) : (
           filteredGames.map((game) => (
             <Card
               key={game.id}
@@ -66,8 +68,6 @@ const Body = () => {
               image={game.background_image}
             />
           ))
-        ) : (
-          <h1>No result found</h1>
         )}
       </div>
     </>
