@@ -1,0 +1,27 @@
+.wrap{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem;
+}
+.shimmer_card{
+    height: 20rem;
+    width: 13rem;
+    background-color: black;
+    margin: 1rem;
+    justify-content: center;
+    text-align: center;
+
+}
+  .image_shimmer{
+    height: 19rem;
+    width: 12rem;
+    background-color: aquamarine;
+  }
+  .text_shimmer{
+    height: .7rem;
+    width: 12rem;
+    background-color: rgb(51, 38, 230);
+  }
+  
+
+  
