@@ -6,6 +6,7 @@ import Footer from "./components/Footer/Footer";
 import About from "./components/Others/about";
 import Contact from "./components/Others/contact";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Details from "./components/Details/Details";
 
 
 const Main = () => {
@@ -35,7 +36,11 @@ const router = createBrowserRouter([
   {
     path: "*",
     element: <Error />
-  }
+  },
+  {
+    path: "game/:gameId",
+    element: <Details />
+  },
 ]);
 
 
