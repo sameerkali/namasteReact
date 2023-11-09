@@ -6,18 +6,19 @@ import { useParams } from "react-router-dom";
 const api_secret_key = process.env.api_secret_key;
 
 const Details = () => {
-  const [details, setDetails] = useState(null);
+  const [details, setDetails] = useState([]);
   const { gameId } = useParams();
+  console.log(gameId)
 
   useEffect(() => {
     api_details();
-    console.log("details page is loaded");
   }, []);
 
   const api_details = async () => {
     const response = await axios.get(`https://api.rawg.io/api/games/${gameId}?key=${api_secret_key}`);
     const data = await response.data;
     setDetails(data);
+    console.log(data)
 
     if (details !== null) {
       return details.map((data) => (
