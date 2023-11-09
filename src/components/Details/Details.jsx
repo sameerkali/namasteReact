@@ -19,7 +19,6 @@ const Details = () => {
     setDetails(data);
 
     if (details !== null) {
-      // The game details have been fetched, so we can safely call the map() function
       return details.map((data) => (
         <div key={data.id}>
           <h1>{data.name}</h1>
@@ -30,7 +29,6 @@ const Details = () => {
         </div>
       ));
     } else {
-      // The game details have not yet been fetched, so we return a placeholder component
       return <Shimmer />;
     }
   };
