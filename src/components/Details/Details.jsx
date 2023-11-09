@@ -11,6 +11,7 @@ const Details = () => {
 
   useEffect(() => {
     api_details();
+    console.log("details page is loaded");
   }, []);
 
   const api_details = async () => {
