@@ -19,7 +19,19 @@
   justify-content: space-between;
   border: 1px solid #ccc;
 }
+.search-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+.search-container input{
+  width: 35rem;
+  height: 3rem;
+  border-radius: 5px;
+  padding: 1rem;
 
+}
 @media (max-width: 768px) {
   .container-body {
     flex-direction: column;
