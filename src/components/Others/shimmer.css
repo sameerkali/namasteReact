@@ -6,22 +6,11 @@
 .shimmer_card{
     height: 20rem;
     width: 13rem;
-    background-color: black;
+    background-color: rgb(220, 218, 218);
     margin: 1rem;
     justify-content: center;
     text-align: center;
 
 }
-  .image_shimmer{
-    height: 19rem;
-    width: 12rem;
-    background-color: aquamarine;
-  }
-  .text_shimmer{
-    height: .7rem;
-    width: 12rem;
-    background-color: rgb(51, 38, 230);
-  }
-  
 
   

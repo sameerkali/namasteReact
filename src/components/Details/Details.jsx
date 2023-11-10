@@ -21,7 +21,7 @@ const Details = () => {
           <p>{details.description}</p>
         </div>
       ) : (
-        <Shimmer /> // Show a loading component while details are being fetched
+        <Shimmer /> 
       )}
     </>
   );
