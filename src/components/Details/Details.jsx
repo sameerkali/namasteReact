@@ -1,44 +1,45 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import Shimmer from "../Others/shimmar";
 import { useParams } from "react-router-dom";
 
 const api_secret_key = process.env.api_secret_key;
 
 const Details = () => {
-  const [details, setDetails] = useState([]);
+  const [details, setDetails] = useState(null); // Initialize as null
   const { gameId } = useParams();
-  console.log(gameId)
 
   useEffect(() => {
     api_details();
-  }, []);
+  }, [gameId]); // Re-run effect when gameId changes
 
   const api_details = async () => {
-    const response = await axios.get(`https://api.rawg.io/api/games/${gameId}?key=${api_secret_key}`);
-    const data = await response.data;
-    setDetails(data);
-    console.log(data)
-
-    if (details !== null) {
-      return details.map((data) => (
-        <div key={data.id}>
-          <h1>{data.name}</h1>
-          <p>{data.rating}</p>
-          <p>{data.updated}</p>
-          <span>{data.requirements_en}</span>
-          <span>{data.description}</span>
-        </div>
-      ));
-    } else {
-      return <Shimmer />;
+    try {
+      const response = await fetch(
+        `https://api.rawg.io/api/games/${gameId}?key=${api_secret_key}`
+      );
+      const data = await response.json();
+      setDetails(data);
+      console.log(data);
+    } catch (error) {
+      console.error("Error fetching details:", error);
     }
   };
 
   return (
-    <div>
-      {api_details()}
-    </div>
+    <>
+      {details ? ( // Check if details is not null
+        <div key={details.id}>
+          <h1>{details.name}</h1>
+          <img src={details.background_image} height={300} />
+          <p>{details.rating}</p>
+          <p>{details.updated}</p>
+          <span>{details.requirements_en}</span>
+          <p>{details.description}</p>
+        </div>
+      ) : (
+        <Shimmer /> // Show a loading component while details are being fetched
+      )}
+    </>
   );
 };
 
