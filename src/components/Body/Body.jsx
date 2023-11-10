@@ -10,6 +10,7 @@ const Body = () => {
   const games = useMainData(Api_url);
   const isOnline = useOnlineStatus();
 
+  if (!isOnline) return <h1>You are offline 🔴</h1>;
   return (
     <div className="container-body">
       {games.map(({ id, name, background_image }) => (
