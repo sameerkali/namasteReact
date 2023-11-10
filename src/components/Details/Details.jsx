@@ -1,32 +1,16 @@
-import React, { useState, useEffect } from "react";
 import Shimmer from "../Others/shimmar";
-import { useParams } from "react-router-dom";
-
-const api_secret_key = process.env.api_secret_key;
+import { useParams, Link } from "react-router-dom";
+import useApiDetails from "../Others/useApiDetails";
 
 const Details = () => {
-  const [details, setDetails] = useState(null); // Initialize as null
   const { gameId } = useParams();
-
-  useEffect(() => {
-    api_details();
-  }, [gameId]); // Re-run effect when gameId changes
-
-  const api_details = async () => {
-    try {
-      const response = await fetch(
-        `https://api.rawg.io/api/games/${gameId}?key=${api_secret_key}`
-      );
-      const data = await response.json();
-      setDetails(data);
-      console.log(data);
-    } catch (error) {
-      console.error("Error fetching details:", error);
-    }
-  };
+  const details = useApiDetails(gameId); // fetching the data with help of custome hook
 
   return (
     <>
+      <Link to={`/`}>
+        <h1>Home</h1>
+      </Link>
       {details ? ( // Check if details is not null
         <div key={details.id}>
           <h1>{details.name}</h1>
