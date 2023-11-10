@@ -19,6 +19,7 @@ const Header = () => {
           <Link style={{marginLeft: '2rem', color: '#000'}} to={`/`}>Home</Link>
           <Link style={{marginLeft: '2rem', color: '#000'}} to={`/about`}>About</Link>
           <Link style={{marginLeft: '2rem', color: '#000'}} to={`/contact`}>Contact</Link>
+          <Link style={{marginLeft: '2rem', color: '#000'}} to={`/apps`}>Apps</Link>
           </ul>
         </div>
         <div className="nav-item">
