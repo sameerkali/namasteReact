@@ -25,7 +25,7 @@ class Profile extends React.Component {
           overflow: "hidden"
         }}
       >
-        <UserClass name="sameer faridi from props 222222" />
+        {/* <UserClass name="sameer faridi from props 222222" /> */}
         {/* <UserClass name="sameer faridi from props 333333" /> */}
 
         <h1 style={{ fontSize: "3rem" }}>Sameer's Profile</h1>
