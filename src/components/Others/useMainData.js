@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+const key = process.env.api_secret_key;
 
-const useMainData = (Api_url) => {
+const useMainData = (page) => {
   const [games, setGames] = useState([]);
+  const Api_url = `https://api.rawg.io/api/games?key=${key}&page=${page}`;
+  console.log(Api_url);
 
   useEffect(() => {
     api();
-  }, []);
+  }, [page]);
 
   const api = async () => {
     try {
@@ -18,5 +21,7 @@ const useMainData = (Api_url) => {
   };
   return games;
 };
+
+
 
 export default useMainData;
