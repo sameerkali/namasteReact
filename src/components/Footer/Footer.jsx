@@ -1,8 +1,11 @@
 import React from "react";
 import "./Footer.css";
 import { Github, Linkedin, Twitter} from "lucide-react";
+import { useContext } from "react";
+import UserContext from "../Others/UserContext";
 
 const Footer = () => {
+  const { name } = useContext(UserContext);
   return (
     <>
       <div className="footer">
@@ -17,6 +20,7 @@ const Footer = () => {
             <li> <Github/> </li>
             <li> <Linkedin/> </li>
             <li> <Twitter /> </li>
+            <li> {name} </li>
           </ul>
         </div>
       </div>
