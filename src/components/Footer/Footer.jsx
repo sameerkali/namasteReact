@@ -5,7 +5,7 @@ import { useContext } from "react";
 import UserContext from "../Others/UserContext";
 
 const Footer = () => {
-  const { name } = useContext(UserContext);
+  const { loggedInUser, loggedInUser2 } = useContext(UserContext);
   return (
     <>
       <div className="footer">
@@ -20,7 +20,7 @@ const Footer = () => {
             <li> <Github/> </li>
             <li> <Linkedin/> </li>
             <li> <Twitter /> </li>
-            <li> {name} </li>
+            <li> {loggedInUser2} </li>
           </ul>
         </div>
       </div>

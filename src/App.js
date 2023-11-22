@@ -8,15 +8,42 @@ import Contact from "./components/Others/contact";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Details from "./components/Details/Details";
 import { Suspense } from "react";
+import { useEffect } from "react";
+import { useState } from "react";
+import UserContext from "./components/Others/UserContext";
 const Apps = lazy(() => import("./components/Others/Apps"));
 
 const Main = () => {
+  const [userInfo, setUserInfo] = useState();
+  const [userInfo2, setUserInfo2] = useState();
+
+  useEffect(() => {
+    const data = {
+      name: "sameer faridi",
+      name2: "sameer faridi 2",
+    };
+    setUserInfo(data.name);
+    setUserInfo2(data.name2);
+  }, []);
+
   return (
-    <div id="container">
-      <Header />
-      <Body />
-      <Footer />
-    </div>
+    <UserContext.Provider
+      value={{ loggedInUser: userInfo, loggedInUser2: userInfo2, setUserInfo2 }}
+    >
+      <div id="container">
+        <Header />
+        <Body />
+        <Footer />
+      </div>
+    </UserContext.Provider>
+  );
+};
+
+const App = () => {
+  return (
+    <RouterProvider router={router}>
+      <Main />
+    </RouterProvider>
   );
 };
 
@@ -50,14 +77,6 @@ const router = createBrowserRouter([
     element: <Details />
   }
 ]);
-
-const App = () => {
-  return (
-    <RouterProvider router={router}>
-      <Main />
-    </RouterProvider>
-  );
-};
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
