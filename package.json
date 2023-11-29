@@ -4,14 +4,20 @@
   "description": "make this app from scratch",
   "scripts": {
     "dev": "parcel index.html",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html",
+    "test": "jest",
+    "watch-test": "jest --watch"
   },
   "author": "sameer faridi",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.22.20",
+    "@babel/core": "^7.23.5",
+    "@babel/preset-env": "^7.23.5",
+    "@testing-library/react": "^14.1.2",
+    "babel-jest": "^29.7.0",
     "babel-plugin-transform-remove-console": "^6.9.4",
     "buffer": "^6.0.3",
+    "jest": "^29.7.0",
     "parcel": "^2.9.3",
     "process": "^0.11.10"
   },
