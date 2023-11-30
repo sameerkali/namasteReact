@@ -4,3 +4,7 @@ test("this is sum test", () => {
   const sum = Sum(1,8);
   expect(sum).toBe(9);
 });
+// test("this is sum test", () => {
+//   const sum = Sum(1,8);
+//   expect(sum).toBe(9);
+// });
