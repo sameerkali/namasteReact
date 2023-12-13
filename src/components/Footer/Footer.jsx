@@ -1,11 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Footer.css";
-import { Github, Linkedin, Twitter} from "lucide-react";
+import { Github, Linkedin, Twitter } from "lucide-react";
 import { useContext } from "react";
 import UserContext from "../Others/UserContext";
+import { useDispatch } from "react-redux";
+import { changeName, toggleBool } from "../../store/booleanSlice";
 
 const Footer = () => {
-  const { loggedInUser, loggedInUser2 } = useContext(UserContext);
+  const {loggedInUser2 } = useContext(UserContext);
+  const [hiname, sethiname] = useState('')
+  const dispatch = useDispatch();
+  const togglename = () => {
+    dispatch(toggleBool());
+  };
+  const setNameHandler = () => {
+    dispatch(changeName(hiname));
+  };
+const setnameeee = (e) => {
+  sethiname(e.target.value)
+}
   return (
     <>
       <div className="footer">
@@ -17,11 +30,28 @@ const Footer = () => {
         </h2>
         <div className="nav-item">
           <ul>
-            <li> <Github/> </li>
-            <li> <Linkedin/> </li>
-            <li> <Twitter /> </li>
+            <li>
+              {" "}
+              <Github />{" "}
+            </li>
+            <li>
+              {" "}
+              <Linkedin />{" "}
+            </li>
+            <li>
+              {" "}
+              <Twitter />{" "}
+            </li>
             <li> {loggedInUser2} </li>
           </ul>
+          <button onClick={togglename}> toggle header</button>
+          <input
+            type="text"
+            value={hiname}
+            onChange={setnameeee}
+            placeholder="Enter your name"
+          />
+          <button onClick={setNameHandler}>Set Name</button>
         </div>
       </div>
     </>

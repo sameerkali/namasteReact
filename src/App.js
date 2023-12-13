@@ -11,6 +11,8 @@ import { Suspense } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import UserContext from "./components/Others/UserContext";
+import { Provider } from "react-redux";
+import store from "./store/store";
 const Apps = lazy(() => import("./components/Others/Apps"));
 
 const Main = () => {
@@ -20,22 +22,28 @@ const Main = () => {
   useEffect(() => {
     const data = {
       name: "sameer faridi",
-      name2: "sameer faridi 2",
+      name2: "sameer faridi 2"
     };
     setUserInfo(data.name);
     setUserInfo2(data.name2);
   }, []);
 
   return (
-    <UserContext.Provider
-      value={{ loggedInUser: userInfo, loggedInUser2: userInfo2, setUserInfo2 }}
-    >
-      <div id="container">
-        <Header />
-        <Body />
-        <Footer />
-      </div>
-    </UserContext.Provider>
+    <Provider store={store}>
+      <UserContext.Provider
+        value={{
+          loggedInUser: userInfo,
+          loggedInUser2: userInfo2,
+          setUserInfo2
+        }}
+      >
+        <div id="container">
+          <Header />
+          <Body />
+          <Footer />
+        </div>
+      </UserContext.Provider>
+    </Provider>
   );
 };
 
