@@ -13,6 +13,7 @@ import { useState } from "react";
 import UserContext from "./components/Others/UserContext";
 import { Provider } from "react-redux";
 import store from "./store/store";
+import Demo from "./components/Others/Demo";
 const Apps = lazy(() => import("./components/Others/Apps"));
 
 const Main = () => {
@@ -83,6 +84,10 @@ const router = createBrowserRouter([
   {
     path: "game/:gameId",
     element: <Details />
+  },
+  {
+    path: "/demo",
+    element: <Demo />
   }
 ]);
 
